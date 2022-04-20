@@ -1,0 +1,24 @@
+{% extends "subastar.html" %}
+{% load static %}
+{% block card-tittle%}
+<p>Elige la categoría del vehículo</p>
+{% endblock%}
+{% block list-group-card %}
+    {% for key, values in marcas.items %}
+        <p>{{key}}</p>
+        {% for value in values %}
+        <li class="list-group-item">
+            <a href="#">{{value}}</a>
+        </li>
+    {% endfor %}
+    <br>
+    {% endfor %}
+{% endblock%}
+{% block go-back-ahead %}
+<div class="go-back">
+    <a href="\subastar_step_1.html"><img class = "to-back" src="{% static 'images/mas.svg'%}" alt="mas"></a>
+</div>
+<div class="go-further">
+    <a href="\subastar_step_2.html"><img src="{% static 'images/mas.svg'%}" alt="mas"></a>
+</div>
+{% endblock %}

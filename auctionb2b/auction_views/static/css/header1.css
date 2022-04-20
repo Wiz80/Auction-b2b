@@ -1,0 +1,127 @@
+:root{
+  --g1: #48E418;
+  --g2: #83F024;
+  --g3: #CCFF33;
+  --r: #FF3341;
+  --b: #3F67E9;
+  --card: #FF5221 - #FFB33B;
+  --w1: #FFFFFF;
+  --w2: #F8F9FA;
+  --w3: RGB(246,246,246,80);
+  --gr1: #E9ECEF;
+  --gr2: #DEE2E6;
+  --gr3: #ADB5BD; 
+  --gr4: #929394;
+  --bl1: #212529;
+  --bl2: #484F56;
+  --small: 6px;
+  --medi-small: 11px;
+  --medium: 13px;
+  --large: 15px;
+  --f1: 'SF Pro Display', sans-serif;
+  --f2: 'Helvetica Neue', sans-serif;
+}
+
+
+.container-fluid{
+    font-size: var(--medium);
+    border-bottom: solid;
+    border-width: 1px;
+    border-color: var(--gr2);
+    color: var(--bl1);
+}
+
+.container-fluid .row{
+    height: 65px;
+}
+
+
+.logo-head{
+    padding-left: 20%;
+}
+
+.logo-head2{
+    padding-left: 50%;
+}
+
+
+.input_group{
+    border: solid;
+    border-width: 1px;
+    border-color: var(--g1);
+    border-radius: 16px;   
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input_group .lupa{
+    padding-right: 5%;
+}
+
+.input_group input[type=search]{
+    border: none;
+    font-size: var(--medium);
+    font-weight: 400;
+    width: 80%;
+    color: var(--gr3);
+}
+
+.input_group input[type=search]:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown-toggle{
+    background-color: white;
+    font-size: var(--medium);
+    color: var(--bl2);
+    border: none;
+    border-radius:5px;
+    height: 30px;
+}
+.btn.btn-secondary.dropdown-toggle:hover {
+    background-color: var(--w3);
+    color: var(--bl2);
+}
+
+.btn.btn-secondary.dropdown-toggle:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: var(--w3);
+    color: var(--bl2);
+}
+
+a{
+    text-decoration: none;
+    color: var(--bl2);
+    font-size: var(--medium);
+}
+
+
+.col.tirdcolumns{
+    border-right: solid;
+    border-width: 1px;
+    border-color: var(--gr2);
+}
+
+
+.btn-primary{
+    background-color: var(--g1);
+    border: none;
+    border-radius: 20px;
+    height: 35px;
+    width: 120px;
+    font-weight: bold;
+    font-size: var(--medium)
+}
+
+.row .col{
+    display: flex;
+    justify-content: center;
+}
+
+.btn-group{
+    width: 800px;
+}

@@ -1,0 +1,97 @@
+:root{
+    --g1: #48E418;
+    --g2: #83F024;
+    --g3: #CCFF33;
+    --g4: greenyellow;
+    --r: #FF3341;
+    --b: #3F67E9;
+    --card: #FF5221 - #FFB33B;
+    --w1: #FFFFFF;
+    --w2: #F8F9FA;
+    --w3: RGB(246,246,246,80);
+    --gr0: #E6E7E9;
+    --gr1: #E9ECEF;
+    --gr2: #DEE2E6;
+    --gr3: #ADB5BD; 
+    --gr4: #929394;
+    --bl1: #212529;
+    --bl2: #484F56;
+    --small: 6px;
+    --medi-small: 11px;
+    --medium: 13px;
+    --large: 15px;
+    --title: 18px;
+    --f1: 'SF Pro Display', sans-serif;
+    --f2: 'Helvetica Neue', sans-serif;
+  }
+
+
+.card{
+    height: 400px;
+    width: 500px;
+    margin-top: 30px;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: var(--gr0);
+}
+
+.card-content{
+    padding-top: 8%;
+    padding-left: 14%;
+}
+
+.card-content .tittle-card p{
+    font-size: var(--title);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: var(--g3);
+}
+
+.list-group{
+    width: 80%;
+    max-height: 250px;
+    overflow-y:scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.content-in-card{
+    padding-top: 5px;
+}
+
+
+ul li a:hover{
+    color: var(--bl2)
+}
+
+.dropdown-menu.hamburger-content-header{
+    min-width: 50vh;
+    min-height: 500px;
+}
+
+.btn.btn-secondary.dropdown-toggle.hamburger-button:hover{
+    background-color: white;
+}
+
+.btn.btn-secondary.dropdown-toggle.hamburger-button:focus{
+    background-color: white;
+}
+
+.dropdown-toggle.hamburger-button::after {
+    content: none;
+}
+
+.motion-on-card{
+    display: flex;
+}
+
+.go-further{
+    padding-left: 78%;
+}
+
+.go-back{
+    padding-left: 8%;
+}
+
+.to-back{
+    transform: rotate(180deg);
+}

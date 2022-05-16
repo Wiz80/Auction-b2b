@@ -1,0 +1,72 @@
+{% extends 'users\sign_layout.html' %}
+{% load static %}
+
+{% block tittle-card-dos %}
+<p>Crear cuenta</p>
+{% endblock %}
+
+{% block form %}
+<div class = "content-in-card-signup">
+    {% if error_user %}
+    <div class="row error-signup align-items-center">
+        <div class="col-2">
+            <img src="{% static 'images/warning.svg'%}" alt="warning">
+        </div>
+        <div class="col justify-content-center">
+            <span>{{error_user}}</span>
+        </div>
+    </div>
+    {% endif %}
+    <form method = "POST" action="{% url 'signup' %}">
+        {% csrf_token %}
+        <input type="text" name="first_name" placeholder = "Nombres">
+        <input type="text" name="last_name" placeholder = "Apellidos">
+        <input type="date" name="Fecha_Nacimiento" placeholder = "Fecha de nacimiento">
+        <input type="number" maxlength = "10" name="cc" placeholder = "Cédula de ciudadania">
+        <input list="departamentos" name="departamento" id="dep" placeholder="Departamento" onchange="getDepartamento();">
+        <datalist id="departamentos">
+            {% for depa in departamentos %}
+            <option class = "list-group-item" value={{depa}}>
+            {% endfor %}
+        </datalist>
+
+        <script>
+            function getDepartamento(){
+                var my_dep = document.getElementById("dep").value;
+                var list_muni = [];
+                {% for idx, row in dane.iterrows %}
+                if(my_dep=="{{row.DEPARTAMENTO}}"){
+                    list_muni.push("{{row.MUNICIPIO}}")
+                }
+                {% endfor %}
+
+                var list = document.getElementById('municipios');
+                
+                for(var i = 0; i<list_muni.length; i++){
+                    var option = document.createElement('option');    
+                    option.value = list_muni[i];
+                    list.appendChild(option);
+                }
+            }
+        </script>
+
+        <input list="municipios" name="municipio" id="muni" placeholder="Municipio">
+        <datalist id="municipios"></datalist>
+        <input type = "email" name = "email" placeholder = "E-mail">
+        <div class = "pass-div">
+            <input type="password" name="password" placeholder = "Constraseña">
+            {% if error_pass %}
+            <span style="color:#F1515F">Mínimo 8 caracteres incluyendo minúscula, mayúscula y un número. No repitas el mismo carácter más de 3 veces</span>
+            {% else %}
+            <span>Mínimo 8 caracteres incluyendo minúscula, mayúscula y un número. No repitas el mismo carácter más de 3 veces</span>
+            {% endif %}
+            <br>
+        </div>
+        <label >Número telefónico</label><br>
+        <input type="number" maxlength = "10" name="phone">
+
+        <button type="submit">Continuar</button>
+        <p style="text-align:center">Al continuar, usted acepta nuestra <a href="#">Política de privacidad y condiciones de servicio.</a></p>
+    </form>
+</div>
+{%endblock%}

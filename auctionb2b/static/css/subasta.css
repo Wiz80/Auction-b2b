@@ -1,0 +1,242 @@
+:root{
+    --g1: #48E418;
+    --g2: #83F024;
+    --g3: #CCFF33;
+    --r: #FF3341;
+    --b: #3F67E9;
+    --card: #FF5221 - #FFB33B;
+    --w1: #FFFFFF;
+    --w2: #F8F9FA;
+    --w3: RGB(246,246,246,80);
+    --gr0: #E6E7E9;
+    --gr1: #E9ECEF;
+    --gr2: #DEE2E6;
+    --gr3: #929394;
+    --gr4: #b4b4b4;
+    --bl1: #212529;
+    --bl2: #484F56;
+    --small: 6px;
+    --medi-small: 11px;
+    --medium: 13px;
+    --large: 15px;
+    --f1: 'SF Pro Display', sans-serif;
+    --f2: 'Helvetica Neue', sans-serif;
+}
+
+.card{
+    min-height: 60vh;
+    overflow: hidden;
+    width: 500px;
+    margin-top: 30px;
+    border: 1px solid;
+    border-radius: 10px;
+    border-color: var(--gr0);
+    padding-bottom: 20px;
+}
+
+.card-content{
+    padding-top: 8%;
+    padding-left: 14%;
+}
+
+.card-content .tittle-card p{
+    font-size: var(--title);
+    font-weight: bold;
+    text-decoration: underline;
+    text-decoration-color: var(--g3);
+}
+
+.list-group{
+    width: 80%;
+}
+
+.content-in-card{
+    padding-top: 5px;
+}
+
+
+ul li a:hover{
+    color: var(--bl2);
+    font-weight: 500;
+}
+
+
+.dropdown-menu.hamburger-content-header{
+    min-width: 50vh;
+    min-height: 500px;
+}
+
+.btn.btn-secondary.dropdown-toggle.hamburger-button:hover{
+    background-color: white;
+}
+
+.btn.btn-secondary.dropdown-toggle.hamburger-button:focus{
+    background-color: white;
+}
+
+.dropdown-toggle.hamburger-button::after {
+    content: none;
+}
+
+.row.error.publicar-error{
+    width: 370px;
+}
+
+.form-select.select-marca{
+    height: 260px;
+    width: 380px;
+    border: none;
+    padding: 0;
+}
+
+.form-select.select-category{
+    height: 290px;
+    width: 380px;
+    border: none;
+    padding: 0;
+    overflow-y: visible;
+    margin-top: 20px;
+}
+
+.form-select option{
+    margin-bottom: 30px;
+    border-bottom: 1px solid;
+    border-color: var(--gr1);
+    font-size: var(--medium);
+    color: #495056;
+}
+.scrollbar-content::-webkit-scrollbar{
+    width:6px;
+    border-left:1px solid #E6ECF8;
+}
+.scrollbar-content::-webkit-scrollbar-thumb{
+    background-color: var(--gr1);
+    border-radius: 15px;
+}
+
+.buttons{
+    margin-top: 20px;
+    display: inline-block;
+    width: 88%;
+}
+.buttons-first{
+    width: 88%;
+}
+
+.button-for-go button{
+    border: none;
+    background-color: white;
+}
+
+.button-for-go.further{
+    float: right;
+}
+
+.button-for-go.back{
+    float: left;
+    transform: rotate(180deg);
+}
+
+.container-for-input-options{
+    height: 260px;
+    padding-left: 5%;
+    width: 380px;
+}
+.container-for-input-options.overflow-options{
+    overflow-y: scroll;
+}
+
+.container-for-input-options label{
+    font-size: var(--large);
+    font-weight: 500;
+    color: #495056;
+}
+
+
+.container-for-input-options::-webkit-scrollbar{
+    width:6px;
+    border-left:1px solid #E6ECF8;
+}
+.container-for-input-options::-webkit-scrollbar-thumb{
+    background-color: var(--gr1);
+    border-radius: 15px;
+}
+
+
+.align-modelo{
+    position: relative;
+}
+
+.align-modelo input{
+    position: absolute;
+    top: 50%;
+}
+
+.form-select.select-options{
+    width: 320px;
+    height: 40px;
+    border-color: var(--gr1);
+    font-size: var(--medium);
+    color: #495056;
+    margin-bottom: 30px;
+}
+
+.estado_vehiculo{
+    width:320px;
+}
+
+.content-in-card .estado_vehiculo input{
+    width: 200px !important;
+}
+
+.especific-char{
+    height: 80px;
+    width: 320px;
+    font-size: var(--medium);
+}
+
+.especific-char::-webkit-scrollbar{
+    width:6px;
+    border-left:1px solid #E6ECF8;
+}
+.especific-char::-webkit-scrollbar-thumb{
+    background-color: var(--gr1);
+    border-radius: 15px;
+}
+
+.row.error.publicar-error.error-step-4{
+    margin-bottom: 20px;
+}
+
+.sub-step-5-p p{
+    font-size: var(--medium);
+    font-weight: 500;
+    color: #495056;
+}
+
+.add_photos .col .row{
+    display: grid;
+}
+
+.add_photos .col .row .añadir:hover{
+    cursor: pointer;
+}
+
+.add_photos .col .row label{
+    color: #495056;
+    font-weight: 500;
+    font-size: var(--medium);
+}
+
+
+.add_photos .col .row>input{
+    display: none;
+}
+
+.add_photos{
+    width: 400px;
+    height: 260px;
+    border: 1px solid;
+    border-color: var(--gr0);
+    border-radius: 10px;
+}

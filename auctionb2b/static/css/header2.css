@@ -1,0 +1,34 @@
+:root{
+    --g1: #48E418;
+    --g2: #83F024;
+    --g3: #CCFF33;
+    --r: #FF3341;
+    --b: #3F67E9;
+    --card: #FF5221 - #FFB33B;
+    --w1: #FFFFFF;
+    --w2: #F8F9FA;
+    --w3: RGB(246,246,246,80);
+    --gr1: #E9ECEF;
+    --gr2: #DEE2E6;
+    --gr3: #929394;
+    --gr4: #b4b4b4;
+    --bl1: #212529;
+    --bl2: #484F56;
+    --small: 6px;
+    --medi-small: 11px;
+    --medium: 13px;
+    --large: 15px;
+    --f1: 'SF Pro Display', sans-serif;
+    --f2: 'Helvetica Neue', sans-serif;
+}
+.container-fluid.dos{
+    border-width: 1px;
+    width: 80%;
+    border-color: var(--gr0);
+}
+
+
+.container-fluid.dos .row.dos{
+    height: 100px;
+}
+

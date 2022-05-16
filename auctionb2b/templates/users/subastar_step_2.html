@@ -1,0 +1,71 @@
+{% extends "users\subastar.html" %}
+{% load static %}
+{% block card-tittle%}
+<p>{{titulo}}</p>
+{% endblock%}
+{% block list-group-card %}
+    {% if dict_vehiculos %}
+        {% if error %}
+            <div class="row error publicar-error align-items-center">
+                <div class="col-2">
+                    <img src="{% static 'images/warning.svg'%}" alt="warning">
+                </div>
+                <div class="col justify-content-center">
+                    <span>{{error}}</span>
+                </div>
+            </div>
+        {% endif %}
+        <form action="{% url 'subastar_2' id=id %}" method = "POST">
+            {% csrf_token %}
+                
+            <select name = "marca" id = "marca-new" class="form-select scrollbar-content shadow-none select-marca" size="6" aria-label="size 6 select example">
+                {% for key, values in dict_vehiculos.items %}
+                    <option style="background-color: #F8F9FA;" disabled>{{key}}</option>
+                    {% for value in values %}
+                        <option>{{value}}</option>
+                    {% endfor %}
+                <br>
+                {% endfor %}
+                <option style="background-color: #F8F9FA;">Añadir nueva marca</option>
+            </select>
+            <div class="buttons">
+                <div class = "button-for-go further">
+                    <button type="submit">
+                        <img src="{% static 'images/mas.svg'%}" alt="mas">
+                    </button>
+                </div>
+                <div class = "button-for-go back">
+                    <a href="{% url 'subastar_1' %}"><img src="{% static 'images/mas.svg'%}" alt="mas"></a>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+    {%if dict_vehiculos_none %}
+        {% if error %}
+            <div class="row error publicar-error align-items-center">
+                <div class="col-2">
+                    <img src="{% static 'images/warning.svg'%}" alt="warning">
+                </div>
+                <div class="col justify-content-center">
+                    <span>{{error}}</span>
+                </div>
+            </div>
+        {% endif %}
+        <form action="{% url 'subastar_2' id=id %}" method = "POST">
+            {% csrf_token %}
+            <div class="container-for-input-options align-items-center align-modelo">
+                <input type="text" name="marca">
+            </div>
+            <div class="buttons">
+                <div class = "button-for-go further">
+                    <button type="submit">
+                        <img src="{% static 'images/mas.svg'%}" alt="mas">
+                    </button>
+                </div>
+                <div class = "button-for-go back">
+                    <a href="{% url 'subastar_2' id=id %}"><img src="{% static 'images/mas.svg'%}" alt="mas"></a>
+                </div>
+            </div>
+        </form>
+    {% endif %}
+{% endblock%}

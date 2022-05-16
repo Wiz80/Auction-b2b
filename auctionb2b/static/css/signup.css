@@ -1,0 +1,114 @@
+:root{
+    --g1: #48E418;
+    --g2: #83F024;
+    --g3: #CCFF33;
+    --r: #FF3341;
+    --b: #3F67E9;
+    --card: #FF5221 - #FFB33B;
+    --w1: #FFFFFF;
+    --w2: #F8F9FA;
+    --w3: RGB(246,246,246,80);
+    --gr1: #E9ECEF;
+    --gr2: #DEE2E6;
+    --gr3: #929394;
+    --gr4: #b4b4b4;
+    --bl1: #212529;
+    --bl2: #484F56;
+    --small: 6px;
+    --medi-small: 11px;
+    --medium: 13px;
+    --large: 15px;
+    --f1: 'SF Pro Display', sans-serif;
+    --f2: 'Helvetica Neue', sans-serif;
+}
+
+.content-in-card-signup input{
+    width: 320px;
+    height: 40px;
+    margin-bottom: 20px;
+    border: 1px solid;
+    border-color: var(--gr4);
+    color: var(--gr4);
+    border-radius: 5px;
+    font-size: var(--medi-small);
+}
+.content-in-card-signup input::placeholder{
+    color: var(--gr4);
+}
+.content-in-card-signup input:focus{
+    outline: none !important;
+    border: 1px solid;
+    border-color: var(--g3);
+}
+.content-in-card-signup label{
+    font-size: var(--medi-small);
+    color: var(--gr4);
+}
+.content-in-card-signup button{
+    width:320px;
+    height:40px;
+    border: none;
+    background-color: var(--g1);
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+}
+
+
+.card.dos{
+    height: 150%;
+    margin-bottom: 45px;
+}
+
+.content-in-card-signup datalist {
+    background-color: white;
+    width: 350px;
+    max-height: 10rem;
+    overflow-y: auto;
+}
+
+.content-in-card-signup p{
+    color: var(--bl1);
+    font-size: 10px;
+}
+
+.content-in-card-signup .pass-div{
+    width: 320px;
+}
+
+.content-in-card-signup .pass-div input{
+    margin-bottom: 0px !important;
+}
+.content-in-card-signup .pass-div span{
+    color: var(--gr3);
+    font-size: 10px;
+}
+
+.content-in-card-signup a{
+    color: var(--bl1);
+    font-size: 10px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.row.error-signup{
+    margin-left: 1%;
+    width: 310px;
+    height: 50px;
+    background-color: #FFE9E9;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.row.error-signup span{
+    color:#F1515F;
+    font-size: var(--medium);
+    font-weight:500;
+}

@@ -1,0 +1,35 @@
+{% extends "users\subastar.html" %}
+{% load static %}
+{% block card-tittle%}
+<p>Elige la categoría del vehículo</p>
+{% endblock%}
+{% block list-group-card %}
+{% if error %}
+    <div class="row error publicar-error align-items-center">
+        <div class="col-2">
+            <img src="{% static 'images/warning.svg'%}" alt="warning">
+        </div>
+        <div class="col justify-content-center">
+            <span>{{error}}</span>
+        </div>
+    </div>
+{% endif %}
+<form action="{% url 'subastar_1'%}" method = "POST">
+    {% csrf_token %}
+    <select name = "categoria" class="form-select select-category shadow-none" size="7" aria-label="size 7 select example">
+        <option value="1">Carros y Camionetas</option>
+        <option value="2">Motos</option>
+        <option value="3">Autobuses</option>
+        <option value="4">Camiones</option>
+        <option value="5">Motocarros y Mototriciclos</option>
+        <option value="6">Otros</option>
+    </select>
+    <div class="buttons-first">
+        <div class = "button-for-go further">
+            <button type="submit">
+                <img src="{% static 'images/mas.svg'%}" alt="mas">
+            </button>
+        </div>
+    </div>
+</form>
+{% endblock%}

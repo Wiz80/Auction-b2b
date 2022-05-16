@@ -1,8 +1,12 @@
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib import admin
 from django.contrib.auth.models import User
-from .models import Cuenta
+from .models import Cuenta, Vehiculo_Subasta
 # Register your models here.
+
+@admin.register(Vehiculo_Subasta)
+class VehiculoAdmin(admin.ModelAdmin):
+    list_display = ('cuenta','categoria','marca', 'año')
 
 @admin.register(Cuenta)
 class CuentaAdmin(admin.ModelAdmin):
@@ -29,10 +33,14 @@ class CuentaAdmin(admin.ModelAdmin):
     )
 
 class CuentaInline(admin.StackedInline):
-
     model = Cuenta
     can_delete = False
     verbose_name_plural = 'Cuentas'
+
+class VehiculoInline(admin.StackedInline):
+    model = Vehiculo_Subasta
+    can_delete = False
+    verbose_name_plural = "Vehiculos"
 
 class UserAdmin(BaseUserAdmin):
     inlines = (CuentaInline,)

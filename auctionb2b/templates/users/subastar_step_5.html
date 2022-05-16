@@ -1,0 +1,100 @@
+{% extends "users\subastar.html" %}
+{% load static %}
+{% block card-tittle%}
+<p>{{titulo}}</p>
+{% endblock%}
+{% block list-group-card %}
+<script>
+    function select_soat_option(){
+        var soat_option = document.getElementById("soat_opt").value;
+        if(soat_option == "No"){
+            document.getElementById("lab-soat-date").style.display = "none";
+            document.getElementById("in-soat-date").style.display = "none";
+        }else{
+            document.getElementById("lab-soat-date").style.display = "block";
+            document.getElementById("in-soat-date").style.display = "block";
+        }
+    }
+    function select_tecno_option(){
+        var tecno_option = document.getElementById("tecno_opt").value;
+        if(tecno_option == "No"){
+            document.getElementById("lab-tecno-date").style.display = "none";
+            document.getElementById("in-tecno-date").style.display = "none";
+        }else{
+            document.getElementById("lab-tecno-date").style.display = "block";
+            document.getElementById("in-tecno-date").style.display = "block";
+        }
+    }
+    function select_propietario_option(){
+        var propietario_option = document.getElementById("propietario_opt").value;
+        if(propietario_option == "Sí"){
+            document.getElementById("lab-name-prop").style.display = "none";
+            document.getElementById("name-prop-info").style.display = "none";
+            document.getElementById("lab-cc-prop").style.display = "none";
+            document.getElementById("cc-prop-info").style.display = "none";
+            document.getElementById("lab-cel-prop").style.display = "none";
+            document.getElementById("cel-prop-info").style.display = "none";
+            document.getElementById("info-prop").style.display = "none";
+        }else{
+            document.getElementById("lab-name-prop").style.display = "block";
+            document.getElementById("name-prop-info").style.display = "block";
+            document.getElementById("lab-cc-prop").style.display = "block";
+            document.getElementById("cc-prop-info").style.display = "block";
+            document.getElementById("lab-cel-prop").style.display = "block";
+            document.getElementById("cel-prop-info").style.display = "block";
+            document.getElementById("info-prop").style.display = "block";
+        }
+    }
+</script>
+{% if error %}
+    <div class="row error align-items-center">
+        <div class="col-2">
+            <img src="{% static 'images/warning.svg'%}" alt="warning">
+        </div>
+        <div class="col justify-content-center">
+            <span>{{error}}</span>
+        </div>
+    </div>
+{% endif %}
+<form action="{% url 'subastar_5' id=id%}" method = "POST">
+    {% csrf_token %}
+    <div class="container-for-input-options sub-step-5-p overflow-options align-items-center align-self-center">
+        <label class="w-100">¿El vehículo tiene SOAT?</label>
+        <select name="soat" class = "form-select select-options shadow-none" id = "soat_opt" onchange="select_soat_option();">
+            <option value="Sí">Sí</option>
+            <option value="No">No</option>
+        </select>
+        <label class="w-100" id = "lab-soat-date">¿Hasta cuándo esta pago el SOAT del vehículo?</label>
+        <input type="text" id = "in-soat-date" name = "soat_date" placeholder = "Ejp : Noviembre 2022 ">
+        <label class="w-100">¿El vehículo tiene Revisión Técnico Mecánica?</label>
+        <select name="tecno" class = "form-select select-options shadow-none" id = "tecno_opt" onchange="select_tecno_option();">
+            <option value="Sí">Sí</option>
+            <option value="No">No</option>
+        </select>
+        <label class="w-100" id = "lab-tecno-date">¿Hasta cuándo esta paga la Revisión Técnico Mecánica?</label>
+        <input type="text" id = "in-tecno-date" name = "tecno_date" placeholder = "Ejp : Noviembre 2022 ">
+        <label class="w-100" id = "lab-prop-opt">¿Es el propietario del vehículo?</label>
+        <select name="propietario" class = "form-select select-options shadow-none" id = "propietario_opt" onchange="select_propietario_option();">
+            <option value="No">No</option>
+            <option value="Sí">Sí</option>
+        </select>
+        <label class="w-100" id = "lab-name-prop">Por favor, digite el nombre completo del propietario</label>
+        <input type="text" id = "name-prop-info" name = "name-prop-info" placeholder = "Ejp : Maria Camila Castillo Perez">
+        <label class="w-100" id = "lab-cc-prop">Por favor, digite el número de cédula del propietario</label>
+        <input type="number" id = "cc-prop-info" name = "cc-prop-info" placeholder = "Ejp : 1098827564">
+        <label class="w-100" id = "lab-cel-prop">Por favor, digite el número de telefono celular del propietario</label>
+        <input type="number" max_length = "10" id = "cel-prop-info" name = "cel-prop-info" placeholder = "Ejp : 3115084629 ">
+        <p id = "info-prop">Esta información sólo se mostrará al comprador del vehículo con el fin de confirmar el transpaso del vehículo</p>
+    </div> 
+    <div class="buttons">
+        <div class = "button-for-go further">
+            <button type="submit">
+                <img src="{% static 'images/mas.svg'%}" alt="mas">
+            </button>
+        </div>
+        <div class = "button-for-go back">
+            <a href="{% url 'subastar_4' id=id %}"><img src="{% static 'images/mas.svg'%}" alt="mas"></a>
+        </div>
+    </div>
+</form>
+{% endblock %}

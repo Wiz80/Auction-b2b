@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="18.388" height="16.382" viewBox="0 0 18.388 16.382">
+  <g id="camera" transform="translate(0 -2.618)">
+    <path id="Trazado_25" data-name="Trazado 25" d="M15.045,2.443l-1.083-1.4c-.437-.562-6.164-.562-6.6,0l-1.083,1.4Z" transform="translate(-1.468 2)" fill="#4189fa"/>
+    <circle id="Elipse_18" data-name="Elipse 18" cx="3" cy="3" r="3" transform="translate(6.194 8.5)" fill="#4189fa"/>
+    <path id="Trazado_26" data-name="Trazado 26" d="M14.557,5H3.831A3.835,3.835,0,0,0,0,8.831v6.9a3.835,3.835,0,0,0,3.831,3.831H14.557a3.835,3.835,0,0,0,3.831-3.831v-6.9A3.835,3.835,0,0,0,14.557,5ZM9.194,16.492a4.6,4.6,0,1,1,4.6-4.6A4.6,4.6,0,0,1,9.194,16.492Z" transform="translate(0 -0.557)" fill="#4189fa"/>
+    <line id="Línea_23" data-name="Línea 23" y2="3.831" transform="translate(9.194 9.423)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+    <line id="Línea_23-2" data-name="Línea 23" x1="4" transform="translate(7.194 11.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="1"/>
+  </g>
+</svg>

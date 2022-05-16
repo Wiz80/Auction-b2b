@@ -1,0 +1,78 @@
+{% extends "users\subastar.html" %}
+{% load static %}
+{% block card-tittle%}
+<p>{{titulo}}</p>
+{% endblock%}
+{% block list-group-card %}
+    {% if error %}
+        <div class="row error publicar-error error-step-4 align-items-center">
+            <div class="col-2">
+                <img src="{% static 'images/warning.svg'%}" alt="warning">
+            </div>
+            <div class="col justify-content-center">
+                <span>{{error}}</span>
+            </div>
+        </div>
+    {% endif %}
+    <form action="{% url 'subastar_4' id=id %}" method = "POST">
+        {% csrf_token %}
+        <div class="container-for-input-options overflow-options align-items-center align-self-center">
+            <label class="w-100">Año</label>
+            <input type="number" maxlength="4" name = "año" placeholder = "Ejp : 2015">
+            <label class="w-100">Kilometraje</label>
+            <input type="number" name = "kilometraje" placeholder = "Ejp : 88000">
+            {% if id != 2 %}
+                <label class="w-100">Motor</label>
+                <input type="number" name = "motor" placeholder = "Ejp : 2.0" step="0.1">
+                {% if  id == 1%}
+                    <label class="w-100">Transmisión</label>
+                    <select name="transmision" class = "form-select select-options shadow-none">
+                        <option value="Automática">Automática</option>
+                        <option value="Mecánica">Mecánica</option>
+                    </select>
+                {% endif %}
+                <label class="w-100">Combustible</label>
+                <input type="text" name = "combustible" placeholder = "Ejp : Gasolina">
+            {% else %} 
+                <label class="w-100">Cilindraje (cc)</label>
+                <input type="number" name = "cilindraje" placeholder = "Ejp : 199 ">
+            {% endif %}
+            <label class="w-100">Placa</label>
+            <input type="text" name = "placa" placeholder = "Ejp : ABC123 ">
+            <label class="w-100">Color</label>
+            <input type="text" name = "color" placeholder = "Ejp : Negro ">
+            <label class="w-100">Estado del vehículo</label>
+            <div class="estado_vehiculo ">
+                <p class = "w-100" style="font-size: 13px; color: #495056;">Por favor especifique de 0 a 100 el estado de cada característica del vehículo</p>
+                <div class="d-flex justify-content-between">
+                    <label>Motor</label>
+                    <input class = "input-estado" type="number" name = "estado-motor">
+                </div>
+                <div class="d-flex justify-content-between">
+                    <label>Chasis</label>
+                    <input type="number" name = "estado-chasis">
+                </div>
+                <div class="d-flex justify-content-between">
+                    <label>Luces</label>
+                    <input type="number" name = "estado-luces">
+                </div>
+                <div class="d-flex justify-content-between">
+                    <label>Llantas</label>
+                    <input type="number" name = "estado-llantas">
+                </div>
+            </div>
+            <label class="w-100">Otras especificaciones o características</label>
+            <textarea class="especific-char form-control form-control" name = "otras_especifi" type="text" maxlength="200" placeholder="Ejp: El auto tiene una abolladura en el rin izquierdo.."></textarea>
+        </div>
+        <div class="buttons">
+            <div class = "button-for-go further">
+                <button type="submit">
+                    <img src="{% static 'images/mas.svg'%}" alt="mas">
+                </button>
+            </div>
+            <div class = "button-for-go back">
+                <a href="{% url 'subastar_3' id=id %}"><img src="{% static 'images/mas.svg'%}" alt="mas"></a>
+            </div>
+        </div>
+    </form>
+{% endblock %}

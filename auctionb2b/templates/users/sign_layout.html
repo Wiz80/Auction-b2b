@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block header %}
+<header>
+    <div class="container-fluid dos">
+        <div class="row tres align-items-center">
+            <div class = "col position-relative">
+                <div>
+                    <img src="{% static 'images/Logo1.svg'%}" alt="Logo1">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}
+{% block auction-page %}
+<div class="container">
+    <div class="row align-items-center">
+        <div class="col">
+            <div class = "card dos">    
+                <div class = "card-content dos">
+                    <div class="tittle-card-dos">
+                        {% block tittle-card-dos %}
+                        {% endblock %}
+                    </div>
+                    {% block error_login %}
+                    {% endblock %}
+                    {% block form %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

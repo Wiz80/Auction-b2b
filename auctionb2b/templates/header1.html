@@ -48,7 +48,28 @@
             <div class="col d-none d-sm-block d-md-none d-lg-block d-sm-none d-md-block d-none d-sm-block">
                 <div class="row align-items-center">
                     <div class="col">
-                        <a href="#">Iniciar Sesión</a>
+                        {% if not user.is_authenticated %}
+                        <a href="{% url 'login'%}">Iniciar Sesión</a>
+                        {% else %}
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                              {{request.user.first_name}}
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li class="content-in-dropdown">
+                                    <img src="{% static 'images/Logo1.svg' %}" alt="">
+                                    <a href="#">
+                                    Mi perfil</a>
+                                </li>
+                                <li class="content-in-dropdown">
+                                    <img src="{% static 'images/Home.svg' %}" alt="">
+                                    <a href="#">
+                                    Mis subastas </a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                        {% endif %}
                     </div>
                     <div class="col">
                         <button type="button" class="btn btn-primary">Subastar</button>

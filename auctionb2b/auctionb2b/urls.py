@@ -38,4 +38,5 @@ urlpatterns = [
     path('subastar_step_4/<int:id>/', user_views.subastar_step_4, name = "subastar_4"),
     path('subastar_step_5/<int:id>/', user_views.subastar_step_5, name = "subastar_5"),
     path('subastar_step_6/<int:id>/', user_views.subastar_step_6, name = "subastar_6"),
+    path('feed_vehiculo/', ab2b_views.feed_vehiculo, name = "feed_vehiculo")
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

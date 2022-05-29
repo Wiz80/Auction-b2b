@@ -5,57 +5,55 @@
 {% endblock%}
 {% block list-group-card %}
 <script>
-    var properties = {
-        'border': '1px solid',
-        'border-radius': '5px',
-        'border-color': '#4189FA',
-    };
-    function previewImage() {
-        var files = document.getElementById("file").files;
-        if(files.length > 0){
-            for (var i = 0; i <= files.length; i++) { 
-                files[i].id = i;    
-                (function(file) {
-                    var reader = new FileReader();
-                    reader.onload = function(event) {
-                        console.log(file.id)
-                        document.getElementById(`preview-${file.id}`).setAttribute("src", event.target.result);
-                    }
-                    reader.readAsDataURL(file);
-                    document.getElementById(`col-${file.id}`).style.display = "block";
-                })(files[i]);
-            }
-        }
+    function callView(){
+        document.getElementById("upgrade-to-view").click();
     }
 </script>
 <form action="{% url 'subastar_6' id=id %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
     <div class="row add_photos justify-content-center align-items-center">
         <div class="col d-grid" id = "photo-upload-container">
-            <div class="row justify-content-center">
-                <label for="file-input">
-                    <img src="{% static 'images/camera.svg'%}"/>
-                </label>
-            </div>
-            <div class="row justify-content-center">
-                <label class = "añadir" for="file">Añadir fotos</label>
-                <input type="file" name="file" multiple id="file" accept="image/*" onchange="previewImage();">
+            <div class="row justify-content-center upgrade-photos">
+                <div class="col" >
+                    <label for="file-input">
+                        <img src="{% static 'images/camera.svg'%}"/>
+                    </label>
+                    <label class = "añadir" for="file">Añadir fotos</label>
+                    <input type="file" name="file" multiple id="file" accept="image/*" onchange="callView();">
+                </div>
+                {% if photos %}
+                    {% for photo in photos %}
+                        {% if forloop.counter0 > 0 %}
+                            {% if not forloop.counter0|divisibleby:"2" %}
+                                <div class="col">
+                                    <img src= "/media/usuarios/{{cuenta}}/{{modelo}}/{{photo.name}}" class="img-thumbnail">
+                                </div> 
+                            </div>
+                            {% else %}
+                            <div class="row between-photos">
+                                <div class="col">    
+                                    <img src= "/media/usuarios/{{cuenta}}/{{modelo}}/{{photo.name}}" class="img-thumbnail">
+                                </div> 
+                            {% endif %}
+                        {% else %}
+                        <div class="row between-photos">
+                            <div class="col">
+                                <img src= "/media/usuarios/{{cuenta}}/{{modelo}}/{{photo.name}}" class="img-thumbnail upgrade-photos-card">
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %} 
             </div>
         </div>
-        <div style = "display:none;" id = "col-1" class="col">
-            <img id = "preview-1" class="img-thumbnail">
-        </div>
-        <div style = "display:none;" id = "col-2" class="col">
-            <img id = "preview-2" class="img-thumbnail">
-        </div>  
     </div>
-    <div class="buttons">
+    <div class="buttons d-block">
+        <div class = "button-for-go back">
+            <a href="{% url 'subastar_2' id=id %}"><img src="{% static 'images/menos.svg'%}" alt="mas"></a>
+        </div>
         <div class = "button-for-go further">
-            <button type="submit">
+            <button id = "upgrade-to-view" type="submit">
                 <img src="{% static 'images/mas.svg'%}" alt="mas">
             </button>
-        </div>
-        <div class = "button-for-go back">
-            <a href="{% url 'subastar_2' id=id %}"><img src="{% static 'images/mas.svg'%}" alt="mas"></a>
         </div>
     </div>
 </form>

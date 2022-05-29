@@ -123,3 +123,21 @@ a{
 .btn-group{
     width: 800px;
 }
+
+.content-in-dropdown{ 
+    padding: 5px;
+    border-bottom: 2px;
+    border-color: var(--gr1);
+    width: 100px;
+}
+
+.content-in-dropdown img{
+    float: left;
+    height: 20px;
+    width: 20px;
+}
+
+.content-in-dropdown a{
+    float: right;
+}
+

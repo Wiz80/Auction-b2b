@@ -5,3 +5,7 @@ from django.shortcuts import render, HttpResponse,redirect
 
 def index(request):
     return render(request, 'home.html')
+
+
+def feed_vehiculo(request):
+    return render(request, 'vehiculos/feed_vehiculo.html')

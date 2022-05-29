@@ -52,6 +52,7 @@
 
 .content-in-card{
     padding-top: 5px;
+    overflow: visible;
 }
 
 
@@ -115,7 +116,7 @@ ul li a:hover{
 }
 
 .buttons{
-    margin-top: 20px;
+    margin-top: 5%;
     display: inline-block;
     width: 88%;
 }
@@ -134,7 +135,6 @@ ul li a:hover{
 
 .button-for-go.back{
     float: left;
-    transform: rotate(180deg);
 }
 
 .container-for-input-options{
@@ -214,29 +214,44 @@ ul li a:hover{
     color: #495056;
 }
 
-.add_photos .col .row{
+.add_photos .col .row .col{
     display: grid;
 }
 
-.add_photos .col .row .añadir:hover{
-    cursor: pointer;
-}
-
-.add_photos .col .row label{
+.add_photos .col .row.upgrade-photos .col label{
     color: #495056;
     font-weight: 500;
     font-size: var(--medium);
+    cursor: pointer;
 }
 
+.upgrade-photos .col{
+    display: inline-grid;
+    text-align: center;
+}
 
-.add_photos .col .row>input{
+.add_photos .col .row.upgrade-photos .col>input{
     display: none;
 }
 
 .add_photos{
     width: 400px;
-    height: 260px;
+    padding: 20px 0 20px 0;
     border: 1px solid;
     border-color: var(--gr0);
     border-radius: 10px;
+}
+
+
+.add_photos .col .row.upgrade-photos .col .row{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.row.between-photos{
+    margin-top: 8px;
+}
+
+.col .row.between-photos .col .upgrade-photos-card{
+    border-color: #4189FA;
 }

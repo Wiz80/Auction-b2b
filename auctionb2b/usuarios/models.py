@@ -1,6 +1,11 @@
 from distutils.command.upload import upload
 from django.db import models
 from django.contrib.auth.models import User
+#from django.core.files import File  # you need this somewhere
+#import urllib
+#import os
+
+
 # Create your models here.
 class Cuenta(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE)
@@ -44,3 +49,24 @@ class Vehiculo_Subasta(models.Model):
     cc_propietario =  models.IntegerField(verbose_name = "cc-propietario", null = True, blank = True)
     phone_propietario = models.CharField(max_length = 10, verbose_name = "phone_propietario", null = True, blank = True)
     created = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = "Info Vehiculo"
+
+    def __str__(self):
+        return self.modelo
+
+class Foto_Vehiculo(models.Model):
+    def get_upload_to(instance, filename):
+        return 'usuarios/%s/%s/%s' % (instance.cuenta, instance.vehiculo.modelo ,filename)
+    
+    cuenta = models.ForeignKey(Cuenta, on_delete=models.PROTECT, max_length=10)
+    vehiculo = models.ForeignKey(Vehiculo_Subasta, on_delete=models.CASCADE, max_length=10)
+    photo = models.ImageField(upload_to=get_upload_to, blank=True)
+    name = models.CharField(max_length=100, null = True)
+
+    class Meta:
+        verbose_name = "Foto Vehiculo"
+    
+    def __str__(self):
+        return self.vehiculo.modelo

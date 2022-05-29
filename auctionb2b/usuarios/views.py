@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 #Modelo
 from django.contrib.auth.models import User
-from usuarios.models import Cuenta, Vehiculo_Subasta
+from usuarios.models import Cuenta, Vehiculo_Subasta, Foto_Vehiculo
 
 #Buscar departamentos y municipios
 import pandas as pd
@@ -17,8 +17,8 @@ from .get_vehiculos import Vehiculo
 #Exceptions
 from django.db.utils import IntegrityError
 
-#Forms
-from usuarios.forms import ImageUploadForm
+#Managing files
+import os
 
 
 # Create your views here.
@@ -208,7 +208,7 @@ def subastar_step_2(request,id):
 @login_required
 def subastar_step_3(request,id):
     profile = Cuenta.objects.get(pk = request.user.pk)
-    vehiculo = Vehiculo_Subasta.objects.filter(cuenta = profile).last()
+    vehiculo = Vehiculo_Subasta.objects.filter(cuenta = profile).last()    
     if request.method == 'POST': 
         modelo = request.POST['modelo']
         if modelo == '':
@@ -320,6 +320,27 @@ def subastar_step_5(request,id):
 def subastar_step_6(request,id):
     profile = Cuenta.objects.get(pk = request.user.pk)
     vehiculo = Vehiculo_Subasta.objects.filter(cuenta = profile).last()
+
+    if request.method == 'POST':
+        images = request.FILES.getlist('file')
+        photos_already = Foto_Vehiculo.objects.filter(cuenta = profile, vehiculo = vehiculo)
+        for idx, image in enumerate(images):
+            image.name = str(idx+len(photos_already))+image.name[-4:]            
+            upload_photo = Foto_Vehiculo(cuenta = profile, vehiculo = vehiculo)
+            upload_photo.photo = image
+            upload_photo.name = image.name
+            upload_photo.save()
+
+        max_photos = range(8)
+
+        return render(request, 'users/subastar_step_6.html',
+                  {'titulo': 'Sube fotos del vehículo',
+                   'id':id,
+                   'photos': Foto_Vehiculo.objects.filter(cuenta = profile, vehiculo = vehiculo),
+                   'cuenta': profile,
+                   'modelo': vehiculo.modelo,
+                   'max_photos': max_photos})
+
     return render(request,
                   'users/subastar_step_6.html',
                   {'titulo': 'Sube fotos del vehículo',

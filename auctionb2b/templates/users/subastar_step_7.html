@@ -1,0 +1,61 @@
+{% extends "users\subastar.html" %}
+{% load static %}
+{% block card-tittle%}
+<p>{{titulo}}</p>
+{% endblock%}
+{% block list-group-card %}
+<script>
+    function sub_option(){
+        var subasta_option = document.getElementById("tipo_sub_opt").value;
+        if(subasta_option == 3){
+            document.getElementById("precio-opt-label").style.display = "none";
+            document.getElementById("precio-opt-3-label").style.display = "block";
+        }else{
+            document.getElementById("precio-opt-label").style.display = "block";
+            document.getElementById("precio-opt-3-label").style.display = "none";
+        }
+    }
+    function numberWithCommas(x) {
+        document.getElementById("precio-opt-1-input").value = x.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ".");
+    }
+</script>
+{% if error %}
+    <div class="row error align-items-center">
+        <div class="col-2">
+            <img src="{% static 'images/warning.svg'%}" alt="warning">
+        </div>
+        <div class="col justify-content-center">
+            <span>{{error}}</span>
+        </div>
+    </div>
+{% endif %}
+<form action="{% url 'subastar_7' id=id%}" method="POST">
+    {% csrf_token %}
+    <div class="container-for-input-options overflow-options align-items-center align-self-center">
+        <label class="w-100"><a href="#">Elige el tipo de subasta</a></label>
+        <select name="tipo-subasta" class = "form-select select-options shadow-none" id = "tipo_sub_opt" onchange="sub_option();">
+            <option value="1">Subasta en Sobre Cerrado</option>
+            <option value="2">Subasta Dinámica Ascendente</option>
+            <option value="3">Subasta Dinámica Descendente</option>
+            <option value="4">Subasta Round Robin</option>
+        </select>
+        <label class="w-100" id="precio-opt-label">Digite el precio mínimo dispuesto a aceptar por el vehículo</label>
+        <label class="w-100" id="precio-opt-3-label" style="display: none;">Digite el precio máximo que considere por su vehículo</label>
+        <input type="text" class="form-control text-end" name="precio" id="precio-opt-1-input" onchange="numberWithCommas(document.getElementById('precio-opt-1-input').value)">
+        <label class="w-100" >Defina la fecha de inicio de la subasta</label>
+        <input type="datetime-local" name="inicio" style="color: #495056">
+        <label class="w-100" >Defina la fecha de cierre de la subasta</label>
+        <input type="datetime-local" name="final" style="color: #495056">
+    </div>
+    <div class="buttons">
+        <div class = "button-for-go further">
+            <button type="submit">
+                <img src="{% static 'images/mas.svg'%}" alt="mas">
+            </button>
+        </div>
+        <div class = "button-for-go back">
+            <a href="{% url 'subastar_6' id=id %}"><img src="{% static 'images/menos.svg'%}" alt="mas"></a>
+        </div>
+    </div>
+</form>
+{% endblock %}

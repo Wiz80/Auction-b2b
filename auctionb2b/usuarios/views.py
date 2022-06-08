@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 
 #Modelo
 from django.contrib.auth.models import User
-from usuarios.models import Cuenta, Vehiculo_Subasta, Foto_Vehiculo
+from usuarios.models import Cuenta, Vehiculo_Subasta, Foto_Vehiculo, Info_Subasta
 
 #Buscar departamentos y municipios
 import pandas as pd
@@ -17,9 +17,8 @@ from .get_vehiculos import Vehiculo
 #Exceptions
 from django.db.utils import IntegrityError
 
-#Managing files
-import os
-
+#Fechas
+import datetime
 
 # Create your views here.
 def login_view(request):
@@ -209,6 +208,7 @@ def subastar_step_2(request,id):
 def subastar_step_3(request,id):
     profile = Cuenta.objects.get(pk = request.user.pk)
     vehiculo = Vehiculo_Subasta.objects.filter(cuenta = profile).last()    
+    
     if request.method == 'POST': 
         modelo = request.POST['modelo']
         if modelo == '':
@@ -283,6 +283,7 @@ def subastar_step_5(request,id):
                   {'titulo': 'Más información del vehículo',
                    'id':id,
                    'error': 'Debe llenar todos los espacios'})
+
         vehiculo.tecno = request.POST['tecno']
         if vehiculo.tecno == 'Sí':
             try:
@@ -292,13 +293,15 @@ def subastar_step_5(request,id):
                     'users/subastar_step_5.html',
                     {'titulo': 'Más información del vehículo',
                     'id':id,
-                    'error': 'Debe llenar todos los espacios'})    
+                    'error': 'Debe llenar todos los espacios'})
+
         propietario = request.POST['propietario']
         if propietario == 'No':
             try:
                 vehiculo.propietario = request.POST['name-prop-info']
                 vehiculo.cc_propietario = request.POST['cc-prop-info']
                 vehiculo.phone_propietario = request.POST['cel-prop-info']
+                vehiculo.propietario_es = 'No'
             except:
                 return render(request,
                   'users/subastar_step_5.html',
@@ -307,7 +310,8 @@ def subastar_step_5(request,id):
                    'error': 'Debe llenar todos los espacios'})
         else:
             vehiculo.propietario = request.user.first_name
-        
+            vehiculo.propietario_es = 'Sí'
+
         vehiculo.save()
         return redirect('subastar_6', id=id)
 
@@ -345,3 +349,35 @@ def subastar_step_6(request,id):
                   'users/subastar_step_6.html',
                   {'titulo': 'Sube fotos del vehículo',
                    'id':id})
+
+@login_required
+def subastar_step_7(request,id):
+    profile = Cuenta.objects.get(pk = request.user.pk)
+    vehiculo = Vehiculo_Subasta.objects.filter(cuenta = profile).last()
+    subasta = Info_Subasta(cuenta = profile, vehiculo = vehiculo)
+
+    if request.method == 'POST':
+        try: 
+            subasta.tipo_subasta = request.POST['tipo-subasta']
+            subasta.precio = request.POST['precio']
+            subasta.fecha_inicio = request.POST['inicio']
+            subasta.fecha_cierre = request.POST['final']
+            
+            subasta.save()
+
+            return redirect('vehiculo', pk_vehiculo=vehiculo.pk)
+        
+        except:
+            return render(request, 
+                  'users/subastar_step_7.html',
+                  {'titulo': 'Descripción de la subasta del vehiculo',
+                   'titulo_header_2': 'Describe las características de la subasta',
+                   'id': id,
+                   'error': 'Debe llenar todos los espacios'})
+
+
+    return render(request, 
+                  'users/subastar_step_7.html',
+                  {'titulo': 'Descripción de la subasta del vehiculo',
+                   'titulo_header_2': 'Describe las características de la subasta',
+                   'id': id})

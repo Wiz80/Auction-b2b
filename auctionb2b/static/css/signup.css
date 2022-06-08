@@ -112,3 +112,23 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: var(--medium);
     font-weight:500;
 }
+
+.form-select.select-signup-options{
+    border-color: var(--gr4);
+    margin-bottom: 20px;   
+}
+
+.form-select.select-signup-options, .form-select.select-signup-options option{
+    font-size: var(--medi-small);
+    color: var(--gr4)
+}
+
+.form-select.select-signup-options::-webkit-scrollbar{
+    width:6px;
+    border-left:1px solid #E6ECF8;
+}
+
+.form-select.select-signup-options::-webkit-scrollbar-thumb{
+    background-color: var(--gr1);
+    border-radius: 15px;
+}

@@ -19,10 +19,10 @@ class Cuenta(models.Model):
 
     class Meta:
         verbose_name = "Cuenta"
-
+    
     def __str__(self):
         return self.user.username
-
+    
 
 class Vehiculo_Subasta(models.Model):
     cuenta = models.ForeignKey(Cuenta, on_delete=models.PROTECT)
@@ -44,7 +44,8 @@ class Vehiculo_Subasta(models.Model):
     soat = models.CharField(max_length = 2, verbose_name = "soat")
     fecha_soat = models.CharField(max_length = 20, verbose_name = "fecha_soat", blank = True, null = True)
     tecno = models.CharField(max_length = 2, verbose_name = "tecno", null = True)
-    fecha_tecno = models.DateField(auto_now=False, auto_now_add=False, verbose_name = "fecha_tecno", blank = True, null = True)
+    fecha_tecno = models.CharField(max_length = 20, verbose_name = "fecha tecnomecánica", null = True)
+    propietario_es = models.CharField(max_length = 2, verbose_name = "propietario_es", null = True, blank = True)
     propietario = models.CharField(max_length = 100, verbose_name = "propietario", null = True, blank = True)
     cc_propietario =  models.IntegerField(verbose_name = "cc-propietario", null = True, blank = True)
     phone_propietario = models.CharField(max_length = 10, verbose_name = "phone_propietario", null = True, blank = True)
@@ -52,10 +53,10 @@ class Vehiculo_Subasta(models.Model):
 
     class Meta:
         verbose_name = "Info Vehiculo"
-
+    
     def __str__(self):
         return self.modelo
-
+    
 class Foto_Vehiculo(models.Model):
     def get_upload_to(instance, filename):
         return 'usuarios/%s/%s/%s' % (instance.cuenta, instance.vehiculo.modelo ,filename)
@@ -70,3 +71,20 @@ class Foto_Vehiculo(models.Model):
     
     def __str__(self):
         return self.vehiculo.modelo
+    
+class Info_Subasta(models.Model):
+    cuenta = models.ForeignKey(Cuenta, on_delete=models.PROTECT, max_length=10)
+    vehiculo = models.ForeignKey(Vehiculo_Subasta, on_delete=models.CASCADE, max_length=10)
+    tipo_subasta = models.CharField(max_length=2, null=True)
+    precio = models.CharField(max_length = 50, null= True)
+    departamento = models.CharField(max_length = 50, null= True)
+    municipio = models.CharField(max_length = 50, null= True)
+    fecha_inicio = models.DateTimeField(auto_now_add=False, null = True)
+    fecha_cierre = models.DateTimeField(auto_now_add=False, null = True)
+
+    class Meta:
+        verbose_name = "Info Subasta"
+    
+    def __str__(self):
+        return self.cuenta.user.username
+    

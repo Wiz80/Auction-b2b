@@ -27,10 +27,13 @@
                             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                               Categorías
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <li><a class="dropdown-item" href="#">Action</a></li>
-                              <li><a class="dropdown-item" href="#">Another action</a></li>
-                              <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                              <li><a class="dropdown-item" href="#">Carros y Camionetas</a></li>
+                              <li><a class="dropdown-item" href="#">Motos</a></li>
+                              <li><a class="dropdown-item" href="#">Autobuses</a></li>
+                              <li><a class="dropdown-item" href="#">Camiones</a></li>
+                              <li><a class="dropdown-item" href="#">Motocarros y Mototriciclos</a></li>
+                              <li><a class="dropdown-item" href="#">Otros</a></li>
                             </ul>
                         </div>
                     </div>
@@ -52,19 +55,57 @@
                         <a href="{% url 'login'%}">Iniciar Sesión</a>
                         {% else %}
                         <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                              {{request.user.first_name}}
+                            <button class="btn btn-secondary dropdown-toggle user-name" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            {{request.user.first_name}}
                             </button>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <ul class="dropdown-menu dropdown-menu-end menu-user" aria-labelledby="navbarDropdown">
                                 <li class="content-in-dropdown">
-                                    <img src="{% static 'images/Logo1.svg' %}" alt="">
                                     <a href="#">
-                                    Mi perfil</a>
+                                        <img src="{% static 'images/Logo1.svg' %}" alt="logo_1">
+                                        <p>Mi perfil</p>
+                                    </a>
                                 </li>
+                                <div class="dropdown-divider"></div>
                                 <li class="content-in-dropdown">
-                                    <img src="{% static 'images/Home.svg' %}" alt="">
                                     <a href="#">
-                                    Mis subastas </a>
+                                        <img src="{% static 'images/home.svg' %}" alt="logo_1">
+                                        <p>Mis subastas</p>
+                                    </a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <li class="content-in-dropdown">
+                                    <a href="#">
+                                        <img src="{% static 'images/auction.png' %}" alt="logo_1">
+                                        <p>Mis ofertas</p>
+                                    </a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <li class="content-in-dropdown">
+                                    <a href="#">
+                                        <img src="{% static 'images/me-gusta.svg' %}" alt="logo_1">
+                                        <p>Mis me gusta</p>
+                                    </a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <li class="content-in-dropdown">
+                                    <a href="#">
+                                        <img src="{% static 'images/Notificaciones.svg' %}" alt="logo_1">
+                                        <p>Notificaciones</p>
+                                    </a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <li class="content-in-dropdown">
+                                    <a href="#">
+                                        <img src="{% static 'images/interrogation.svg' %}" alt="logo_1">
+                                        <p>Centro de ayuda</p>
+                                    </a>
+                                </li>
+                                <div class="dropdown-divider"></div>
+                                <li class="content-in-dropdown">
+                                    <a href="#">
+                                        <img src="{% static 'images/power.svg' %}" alt="logo_1">
+                                        <p>Cerrar sesión</p>
+                                    </a>
                                 </li>
                             </ul>
                             

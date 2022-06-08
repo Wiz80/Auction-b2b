@@ -48,12 +48,13 @@
     </div>
     <div class="buttons d-block">
         <div class = "button-for-go back">
-            <a href="{% url 'subastar_2' id=id %}"><img src="{% static 'images/menos.svg'%}" alt="mas"></a>
+            <a href="{% url 'subastar_5' id=id %}"><img src="{% static 'images/menos.svg'%}" alt="mas"></a>
+        </div>
+        <div class = "button-for-go further step-6">
+            <button id = "upgrade-to-view" type="submit" style = "display: none;"></button>
         </div>
         <div class = "button-for-go further">
-            <button id = "upgrade-to-view" type="submit">
-                <img src="{% static 'images/mas.svg'%}" alt="mas">
-            </button>
+            <a href="{% url 'subastar_7' id=id %}"><img src="{% static 'images/mas.svg'%}" alt="mas"></a>
         </div>
     </div>
 </form>

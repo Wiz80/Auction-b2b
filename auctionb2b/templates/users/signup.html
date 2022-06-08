@@ -23,12 +23,12 @@
         <input type="text" name="last_name" placeholder = "Apellidos">
         <input type="date" name="Fecha_Nacimiento" placeholder = "Fecha de nacimiento">
         <input type="number" maxlength = "10" name="cc" placeholder = "Cédula de ciudadania">
-        <input list="departamentos" name="departamento" id="dep" placeholder="Departamento" onchange="getDepartamento();">
-        <datalist id="departamentos">
+        <label for="departamento" class="w-100">Departamento</label>
+        <select name="departamento" class = "form-select select-options shadow-none select-signup-options" id = "dep" onchange="getDepartamento();">
             {% for depa in departamentos %}
-            <option class = "list-group-item" value={{depa}}>
+                <option value="{{depa}}">{{depa}}</option>
             {% endfor %}
-        </datalist>
+        </select>
 
         <script>
             function getDepartamento(){
@@ -40,18 +40,20 @@
                 }
                 {% endfor %}
 
-                var list = document.getElementById('municipios');
+                var list = document.getElementById('muni');
                 
                 for(var i = 0; i<list_muni.length; i++){
                     var option = document.createElement('option');    
+                    option.text = list_muni[i];
                     option.value = list_muni[i];
                     list.appendChild(option);
                 }
             }
         </script>
 
-        <input list="municipios" name="municipio" id="muni" placeholder="Municipio">
-        <datalist id="municipios"></datalist>
+        <label for="municipio" class="w-100">Municipio</label>
+        <select name="municipio" class = "form-select select-options shadow-none select-signup-options" id = "muni"></select>
+
         <input type = "email" name = "email" placeholder = "E-mail">
         <div class = "pass-div">
             <input type="password" name="password" placeholder = "Constraseña">

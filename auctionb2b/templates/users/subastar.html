@@ -1,7 +1,11 @@
 {% extends "header2.html" %}
 {% load static %}
 {% block titulo_header_2 %}
+    {% if titulo_header_2 %}
+    <h4 style = "font-weight:bold">{{titulo_header_2}}</h4>
+    {% else %}
     <h4 style = "font-weight:bold">Describe las características del vehículo</h4>
+    {% endif %}
 {% endblock %}
 {% block auction-page %}
 <div class="container">

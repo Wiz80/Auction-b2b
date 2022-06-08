@@ -1,0 +1,104 @@
+{% extends 'header1.html'%}
+{% load static %}
+{% block auction-page %}
+<div class="row container-info-vehiculo">
+    <div class="col-3 columns-for-info">
+        <div class="container-info first">
+            <h6>Información general</h6>
+            {% for key, value in vehiculo.items %}
+                
+                {% if forloop.counter > 3 and value != None %}
+            
+                    {% if key == 'estado motor' %}
+                        <h6>Estado del vehículo</h6>               
+                    {% endif %}
+
+                    {% if key == 'soat' %}
+                        <h6>Información relevante</h6>               
+                    {% endif %}
+        
+                    {% if key == 'propietario_es'%}
+                        
+                        {% if value == 'Sí' %}
+                        <div class="d-inline-block container_info_first">
+                            <div class="float-start">
+                                <p>propietario</p>
+                            </div>
+                            <div class = "float-end">
+                                <p>único</p>
+                            </div>
+                        </div>  
+                        {% else %}
+                        <div class="d-inline-block container_info_first">
+                            <p>El vendedor de este vehículo no es el propietario de este, aún así <span class="auction-word">Auction</span> asegura la garantía de la transacción en estos casos. <a href="">Saber más</a></p>
+                        </div>
+                        {% endif %}
+                    
+                    {% elif forloop.counter <= 22%}
+                    <div class="d-inline-block container_info_first">
+                        <div class="float-start">
+                            <p>{{key|capfirst}}</p>
+                        </div>
+                        <div class = "float-end">
+                            <p>{{value}}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                        
+                {% endif %}
+                    
+            {% endfor %}
+        </div>        
+    </div>
+    <div class="col-6 columns-for-info">
+        <div class="container-info second">
+            <div class="row first-photo">
+                <img src="/media/usuarios/{{cuenta}}/{{modelo}}/{{photo_1.name}}" class="img-thumbnail">
+            </div>
+            <div class="row secondary-photos">
+                {% for photo in photos %}
+                <div class="col d-inline-block">
+                    <img src="/media/usuarios/{{cuenta}}/{{modelo}}/{{photo.name}}" class="img-thumbnail">
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="col-3 columns-for-info">
+        <div class="container-info third">
+            <div class="titulo-head-vehiculo d-flex w-100">
+                <p>{{marca}} {{modelo}}</p>
+                <div class="icon-titulo-head-vehiculo">
+                    <img src="{% static 'images/me_gusta_1.svg'%}" alt="">
+                    <img src="{% static 'images/share.svg'%}" alt="">
+                </div>
+            </div>  
+            <div class="oferta">
+                <p>Oferta actual</p>
+                <p class="precio">$ {{precio}}</p>
+            </div> 
+            <div class="ubicacion d-flex text-center">
+                <img src="{% static 'images/ubicación.svg'%}" alt="">
+                Sogamoso - Boyacá
+            </div>
+            <div class="fechas">
+                <div class="d-flex fecha-title text-center">
+                    <img src="{% static 'images/rec.svg'%}" alt="">
+                    Fecha de inicio
+                </div>
+                <div class="d-flex fecha-title text-center">
+                    {{inicio}}
+                </div>
+            </div>
+            <div class="fechas">
+                <div class="d-flex fecha-title text-center">
+                    Fecha de cierre
+                </div>
+                <div class="d-flex fecha-title text-center">
+                    {{inicio}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

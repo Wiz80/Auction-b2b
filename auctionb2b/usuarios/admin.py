@@ -1,8 +1,12 @@
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib import admin
 from django.contrib.auth.models import User
-from .models import Cuenta, Foto_Vehiculo, Vehiculo_Subasta
+from .models import Cuenta, Foto_Vehiculo, Info_Subasta, Vehiculo_Subasta
 # Register your models here.
+
+@admin.register(Info_Subasta)
+class FotoAdmin(admin.ModelAdmin):
+    list_display = ('tipo_subasta','cuenta','vehiculo','precio')
 
 @admin.register(Foto_Vehiculo)
 class FotoAdmin(admin.ModelAdmin):
@@ -50,6 +54,11 @@ class FotoInline(admin.StackedInline):
     model = Foto_Vehiculo
     can_delete = False
     verbose_name_plural = "Fotos"
+
+class InfoInline(admin.StackedInline):
+    model = Info_Subasta
+    can_delete = False
+    verbose_name_plural = "Subastas"
 
 
 

@@ -1,0 +1,125 @@
+:root{
+    --g1: #48E418;
+    --g2: #83F024;
+    --g3: #CCFF33;
+    --r: #FF3341;
+    --b: #3F67E9;
+    --card: #FF5221 - #FFB33B;
+    --w1: #FFFFFF;
+    --w2: #F8F9FA;
+    --w3: RGB(246,246,246,80);
+    --gr0: #E6E7E9;
+    --gr1: #E9ECEF;
+    --gr2: #DEE2E6;
+    --gr3: #929394;
+    --gr4: #b4b4b4;
+    --bl1: #212529;
+    --bl2: #484F56;
+    --bl3: #495056;
+    --small: 6px;
+    --medi-small: 11px;
+    --medium: 13px;
+    --large: 15px;
+    --f1: 'SF Pro Display', sans-serif;
+    --f2: 'Helvetica Neue', sans-serif;
+}
+
+.row.container-info-vehiculo{
+    padding:40px 40px 0 40px;
+    --bs-gutter-x: 0;
+}
+
+.container-info{
+    height: 67%;
+}
+
+.container-info.first, .container-info.third{
+    border: 1px solid;
+    border-radius: 14px;
+    border-color: var(--gr2);
+    margin-right: 10px;
+    padding:10px;   
+}
+
+.container-info.first{
+    overflow-y: scroll;
+}
+
+.container-info.first::-webkit-scrollbar{
+    width:6px;
+    border-left:1px solid #E6ECF8;
+}
+
+.container-info.first::-webkit-scrollbar-thumb{
+    background-color: var(--gr1);
+    border-radius: 15px;
+}
+
+.container-info h6{
+    font-size: var(--large);
+    color: var(--bl3);
+    text-decoration: underline;
+    text-decoration-color: var(--g3);
+    margin: 10px 0 20px 0;
+}
+
+.container_info_first{
+    width: 100%;
+    font-size: var(--medium);
+    color: var(--bl3);
+    border-bottom: 1px solid var(--gr1);
+}
+
+.auction-word{
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-color: var(--g3);
+}
+
+.row.first-photo{
+    margin: 0 10px 0 -2px;
+    height: 86%;
+}
+
+.row.secondary-photos{
+    margin: 10px 10px 0 0;
+}
+
+.container-info.third .titulo-head-vehiculo p{
+    color: var(--bl2);
+    font-size: var(--large);
+    font-weight: bold;
+}
+
+.titulo-head-vehiculo .icon-titulo-head-vehiculo{
+    margin-left: 90px;
+}
+
+.titulo-head-vehiculo .icon-titulo-head-vehiculo img{
+    margin-right: 10px;
+}
+
+.oferta p{
+    color: var(--gr3);
+    font-size: var(--medium);
+    margin-bottom: 0px;
+}
+
+.oferta .precio{
+    font-size: 20px;
+    color: var(--g2);   
+}
+
+.ubicacion{
+    margin-top: 10px;
+    font-size: var(--large);
+    color: var(--bl3);
+}
+
+.ubicacion img{
+    margin-right: 20px;
+}
+
+.row.container-info-vehiculo .columns-for-info{
+    height: 800px;
+}

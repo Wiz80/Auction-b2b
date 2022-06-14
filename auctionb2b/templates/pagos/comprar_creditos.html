@@ -1,0 +1,75 @@
+{% extends "layout.html" %} 
+{% load static %} 
+{% block auction-page %} 
+{%include 'snippets\bubbles_precios_js.html'%}
+<div class="container_full_page d-block">
+  <div class="header-3 d-inline-block w-100">
+    <div class="float-start img-small">
+      <a href="#"><img src="{% static 'images/Logo1.svg'%}" alt="Logo1" /></a>
+    </div>
+    <div class="float-end img-small">
+      <a href="#"><img src="{% static 'images/user.svg'%}" alt="user_def" /></a>
+    </div>
+  </div>
+  <div class="content-titulo-creditos">
+    <p class="Titulo-creditos">Comprar Créditos</p>
+    <div class="text-creditos">
+      <p>
+        Para poder ofertar en una subasta se deben comprar créditos de subasta
+        Auction, esto se hace con el objetivo de garantizar la compra de forma
+        confiable y segura al vendedor. Por esta razón para la oferta que
+        realices se debe cumplir con un mínimo de 10% en créditos sobre el valor
+        base de la oferta postulada por el comprador. <a href="#">Saber más</a>
+      </p>
+    </div>
+  </div>
+  <div class="row add-coin-credits">
+    <div class="col-2 coin-img">
+      <img
+        class="mx-auto d-block"
+        src="{% static 'images/AuctionCoin.svg'%}"
+        alt="auction-coin"
+      />
+    </div>
+    <div class="col add-price-credits">
+      <div class="row w-100">
+        <div class="col-6 content-1-credits">
+          <p>Créditos de subasta auction</p>
+          <div class="caja-2 d-flex bubbles">
+            <div class="content-bubbles-creditos">
+              <div class="valor">
+                <input
+                  class="valor-oferta"
+                  type="text"
+                  id="valor-input"
+                  onchange="numberWithCommas(document.getElementById('valor-input').value, 'valor-input');"
+                />
+                <span class="plus">+</span>
+                <span class="unit dos">$</span>
+              </div>
+              <div class="caja-2 d-flex bubbles">
+                {% include 'snippets\bubbles_precios_html.html'%}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+            <div class="oferta-x">
+                <input 
+                type="number"
+                class="valor-oferta-x">
+                <span class = "less"><img src="{% static 'images/less.svg'%}" alt="less"></span>
+                <span class = "ofe-x">x</span>
+                <span class = "plus-2"><img src="{% static 'images/more.svg'%}" alt="more"></span>
+            </div>
+        </div>
+        <div class="col d-block">
+            <div class="last-price float-end">
+                <p id="precio-final">$0</p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

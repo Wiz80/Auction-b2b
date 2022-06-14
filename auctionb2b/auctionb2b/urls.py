@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 
 from auction_views import views as ab2b_views
 from usuarios import views as user_views
-
+from Payments import views as pay_views
 
 
 
@@ -39,5 +39,6 @@ urlpatterns = [
     path('subastar_step_5/<int:id>/', user_views.subastar_step_5, name = "subastar_5"),
     path('subastar_step_6/<int:id>/', user_views.subastar_step_6, name = "subastar_6"),
     path('subastar_step_7/<int:id>/', user_views.subastar_step_7, name = "subastar_7"),
-    path('vehiculo/<int:pk_vehiculo>/', ab2b_views.vehiculo, name = "vehiculo")
+    path('vehiculo/<int:pk_vehiculo>/', ab2b_views.vehiculo, name = "vehiculo"),
+    path('creditos/', pay_views.comprar_creditos, name = "creditos"),
 ]+static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

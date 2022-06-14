@@ -1,0 +1,34 @@
+{% block html_snippet%}
+<div class="contain-button-bubbles">
+    <button class="price-button" type="button" id = "100k" onclick="change_price('100k')">
+        $100k
+    </button>
+    <button class = "X" type = "button" id = "x-1" style="display: none;" onclick="put_price();">
+        X
+    </button>
+</div>
+<div class="contain-button-bubbles">
+    <button class="price-button" type="button" id = "500k" onclick="change_price('500k')">
+        $500k
+    </button>
+    <button class = "X" type = "button" id = "x-2" style="display: none;" onclick="put_price();">
+        X
+    </button>
+</div> 
+<div class="contain-button-bubbles">
+    <button class="price-button" type="button" id = "1M" onclick="change_price('1M')">
+        $1M
+    </button>
+    <button class = "X" type = "button" id = "x-3" style="display: none;" onclick="put_price();">
+        X
+    </button>
+</div>
+<div class="contain-button-bubbles">
+    <button class="price-button" type="button" id = "5M" onclick="change_price('5M')">
+        $5M
+    </button>
+    <button class = "X" type = "button" id = "x-4" style="display: none;" onclick="put_price();">
+        X
+    </button>
+</div>
+{% endblock %}

@@ -1,0 +1,122 @@
+:root{
+    --g1: #48E418;
+    --g2: #83F024;
+    --g3: #CCFF33;
+    --r: #FF3341;
+    --b: #3F67E9;
+    --card: #FF5221 - #FFB33B;
+    --w1: #FFFFFF;
+    --w2: #F8F9FA;
+    --w3: RGB(246,246,246,80);
+    --gr0: #E6E7E9;
+    --gr1: #E9ECEF;
+    --gr2: #DEE2E6;
+    --gr3: #929394;
+    --gr4: #b4b4b4;
+    --gr5: #9FA3AB;
+    --bl1: #212529;
+    --bl2: #484F56;
+    --bl3: #222222;
+    --small: 6px;
+    --medi-small: 11px;
+    --medium: 13px;
+    --large: 15px;
+    --f1: 'SF Pro Display', sans-serif;
+    --f2: 'Helvetica Neue', sans-serif;
+}
+
+.container_full_page{
+    padding: 20px 40px 0 40px;
+}
+
+.header-3 .img-small img{
+    height: 30px;
+    width: 30px;
+}
+
+.content-titulo-creditos{
+    margin-top: 10px;
+    border-bottom: 2px solid var(--gr0);
+}
+
+.text-creditos{
+    width: 600px;
+    text-align: justify;
+}
+
+.text-creditos p, .text-creditos a, .content-1-credits p{
+    font-size: var(--large);
+    font-weight: 500;
+    color: var(--bl1);
+}
+
+.Titulo-creditos{
+    font-size: 25px;
+    font-weight: bold;
+    color: var(--bl3);
+}
+
+.add-coin-credits{
+    height: 200px;
+    border-bottom: 2px solid var(--gr0);
+}
+
+.add-coin-credits .coin-img{
+    align-self: center;
+}
+
+.content-1-credits{
+    padding-top: 35px;
+}
+
+.unit.dos{
+    top: 8px;
+}
+
+.valor-oferta-x{
+    height: 35px;
+    width: 120px;
+    background-color: var(--w3);
+    border-radius: 90px;
+    border-style: hidden;
+    padding-left: 58px;
+    margin-top: 10%;
+}
+
+.oferta-x{
+    position: relative;
+    color: var(--bl1);
+    font-size: var(--large);
+    font-weight: 500;
+}
+
+.oferta-x span img{
+    height: 10px;
+    width: 10px;
+}
+
+
+.oferta-x .less{
+    position: absolute;
+    left: 18px;
+    top: 18px;
+}
+
+.oferta-x .plus-2{
+    position: absolute;
+    right: 18px;
+    top: 18px;
+}
+
+.oferta-x .ofe-x{
+    position: absolute;
+    left: 50px;
+    top: 18px;
+}
+
+.last-price{
+    margin-top: 10%;
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--bl3);
+}

@@ -1,6 +1,20 @@
 {% extends 'header1.html'%}
 {% load static %}
 {% block auction-page %}
+{% include 'snippets\bubbles_precios_js.html'%}
+<script>
+    function habilitar_button(x){
+        if(x == 1){
+            document.getElementById('hab-button-div').setAttribute('style', 'background-color: #48E418');
+            document.getElementById('hab-button-1').setAttribute('style', 'display:none;');
+            document.getElementById('hab-button-2').setAttribute('style', 'display:block;');
+        }else{
+            document.getElementById('hab-button-div').setAttribute('style', '');
+            document.getElementById('hab-button-2').setAttribute('style', 'display:none;');
+            document.getElementById('hab-button-1').setAttribute('style', 'display:block;');
+        }
+    }
+</script>
 <div class="row container-info-vehiculo">
     <div class="col-3 columns-for-info">
         <div class="container-info first">
@@ -77,25 +91,89 @@
                 <p>Oferta actual</p>
                 <p class="precio">$ {{precio}}</p>
             </div> 
-            <div class="ubicacion d-flex text-center">
+            <div class="ubicacion d-flex text-center align-items-center">
                 <img src="{% static 'images/ubicación.svg'%}" alt="">
                 Sogamoso - Boyacá
             </div>
-            <div class="fechas">
-                <div class="d-flex fecha-title text-center">
+            <div class="separador">
+                <div class="d-flex fecha-display text-center">
                     <img src="{% static 'images/rec.svg'%}" alt="">
                     Fecha de inicio
                 </div>
-                <div class="d-flex fecha-title text-center">
+                <div class="d-flex fecha-display text-center">
                     {{inicio}}
                 </div>
             </div>
-            <div class="fechas">
-                <div class="d-flex fecha-title text-center">
+            <div class="separador">
+                <div class="d-flex fecha-tittle text-center">
                     Fecha de cierre
                 </div>
-                <div class="d-flex fecha-title text-center">
-                    {{inicio}}
+                <div class="d-flex fecha-display text-center">
+                    {{cierre}}
+                </div>
+            </div>
+            <div class="separador">
+                <div class="d-flex fecha-tittle text-center">
+                    Tiempo restante
+                </div>
+                <div class="d-flex fecha-display text-center">
+                    <div class="sep">
+                        {{dias}} días
+                    </div> 
+                    <div class="sep">
+                        {{horas}} horas
+                    </div>
+                    <div>
+                        {{minutos}} minutos
+                    </div>
+                </div>
+            </div>
+            <div class="separador d-flex">
+                <div class="d-inline-block ">
+                    <div class="d-flex fecha-display text-center align-items-center">
+                        <img src="{% static 'images/auction.svg'%}" alt="">
+                        Ofertantes
+                    </div>
+                    5
+                </div>
+                <div class="d-inline-block separador-2">
+                    <div class="d-flex fecha-display text-center align-items-center">
+                        <img class = "like" src="{% static 'images/me-gusta.svg'%}" alt="">
+                        Me gustas
+                    </div>
+                    10
+                </div>
+            </div>
+            <div class="separador">
+                <div class="caja-1 d-flex w-100">
+                    <div class="valor align-items-center text-center">
+                        <input class="valor-oferta" type="text" id = "valor-input" onchange="numberWithCommas(document.getElementById('valor-input').value, 'valor-input')">
+                        <span class="plus">+</span>
+                        <span class ="unit">$</span>
+                    </div>
+                    <div class="div-botton-oferta">
+                        <button class = "botton-oferta" type="submit">
+                            Ofertar
+                        </button>
+                    </div>
+                </div>
+                <div class="caja-2 d-flex bubbles">
+                    {% include 'snippets\bubbles_precios_html.html'%}
+                </div>
+                <div class="caja-3 d-flex">
+                    Oferta Automática 
+                    <div class="button-habilitar">
+                        <div class="habilitar" id = "hab-button-div"></div>
+                        <button class="circle one" type = "button" id = "hab-button-1" onclick = "habilitar_button(1)"></button>
+                        <button class="circle two" type = "button" style = "display: none;" id = "hab-button-2" onclick = "habilitar_button(2)"></button>
+                    </div>
+                </div>
+                <div class="caja-4 d-flex">
+                    Oferta Máxima
+                    <div class="val-max align-items-center text-center">
+                        <input class = "oferta-maxima" type="text" id = "valor-max" onchange="numberWithCommas(document.getElementById('valor-max').value, 'valor-max')">
+                        <span class ="unit">$</span>
+                    </div>
                 </div>
             </div>
         </div>

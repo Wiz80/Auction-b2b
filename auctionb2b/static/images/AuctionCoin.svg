@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="70" height="70" viewBox="0 0 70 70">
+  <g id="Grupo_16131" data-name="Grupo 16131" transform="translate(236 -1239)">
+    <g id="AuctionCoin">
+      <g id="Elipse_20" data-name="Elipse 20" transform="translate(-236 1239)" fill="#48e418" stroke="#48e418" stroke-width="1">
+        <circle cx="35" cy="35" r="35" stroke="none"/>
+        <circle cx="35" cy="35" r="34.5" fill="none"/>
+      </g>
+      <g id="Logo" transform="translate(-207.402 1253.579) rotate(20)">
+        <g id="Grupo_1" data-name="Grupo 1">
+          <path id="Unión_1" data-name="Unión 1" d="M0,20.534V3.467A3.467,3.467,0,0,1,3.467,0H22.533A3.467,3.467,0,0,1,26,3.467V16.533a3.467,3.467,0,0,1-6.934,0v-9.6H6.934v13.6a3.467,3.467,0,1,1-6.934,0Z" transform="translate(0 10)" fill="#fff"/>
+          <rect id="Rectángulo_7" data-name="Rectángulo 7" width="26" height="6" rx="3" fill="#fff"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

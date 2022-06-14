@@ -25,7 +25,7 @@
 }
 
 .row.container-info-vehiculo{
-    padding:40px 40px 0 40px;
+    padding:20px 40px 0 40px;
     --bs-gutter-x: 0;
 }
 
@@ -40,6 +40,11 @@
     margin-right: 10px;
     padding:10px;   
 }
+
+.container-info.first, .container-info.second ,.container-info.third{
+    height: 98%;
+}
+
 
 .container-info.first{
     overflow-y: scroll;
@@ -114,12 +119,190 @@
     margin-top: 10px;
     font-size: var(--large);
     color: var(--bl3);
+    margin-bottom: 10px;
 }
 
 .ubicacion img{
-    margin-right: 20px;
+    margin-right: 10px;
 }
 
 .row.container-info-vehiculo .columns-for-info{
-    height: 800px;
+    height: 580px;
+}
+
+.separador{
+    border-top: 2px solid var(--gr1);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: var(--bl3);
+    font-size: var(--medium);
+}
+
+.separador .fecha-tittle{
+    color: var(--gr3);
+    font-size: var(--medium);
+}
+
+.separador .fecha-display img{
+    margin-right: 10px;
+}
+
+.separador .fecha-display{
+    font-size: var(--medium);
+    color: var(--bl3);
+}
+
+.separador .fecha-display .sep{
+    padding-right: 10px;
+    margin-right: 10px;
+    border-right: 1px solid var(--gr1);
+}
+
+.like{
+    height: 12px;
+}
+
+.separador .separador-2{
+    margin-left: 50px;
+}
+
+.valor{
+    position: relative;
+}
+
+.valor-oferta{
+    height: 30px;
+    width: 100px;
+    background-color: var(--w3);
+    border-radius: 90px;
+    border-style: hidden;
+    padding-left: 33px;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.valor .plus{
+    position: absolute;
+    display:block;
+    top: 4px; 
+    left: 10px;
+    font-weight: bold;
+    font-size: var(--medium);
+    color: #9FA3AB;
+}
+
+.valor .unit{
+    position: absolute;
+    display:block;
+    top: 7px;
+    left: 25px;
+    font-weight: 500;
+    font-size: 11px;
+}
+
+.div-botton-oferta{
+    margin-left: 40%;
+}
+
+.botton-oferta{
+    height: 30px;
+    width: 75px;
+    background-color: var(--g1);
+    border-radius: 40px;
+    border-style: hidden;
+    color: var(--w2);
+    font-weight: 500;
+    font-size: 12px;
+}
+
+.bubbles{
+    margin-top: 10px;
+}
+
+.price-button{
+    height: 40px;
+    width: 40px;
+    border: 3px solid var(--w3);
+    border-radius: 30px;
+    background-color: white;
+    font-size: 8px;
+    font-weight: 500;
+    color: var(--bl1);
+    margin-right: 10px;
+}
+
+.contain-button-bubbles{
+    position: relative;
+}
+
+.X{
+    position: absolute;
+    right: 15px;
+    top: 8px;
+    width: 23px;
+    height: 23px;
+    border-radius: 23px;
+    background-color: white;
+    border-style: hidden;
+    color: var(--r);
+    font-weight: bold;
+    font-size: 9px;
+}
+
+.caja-3, .caja-4{
+    margin-top: 15px;
+}
+
+
+.oferta-maxima{
+    height: 25px;
+    width: 120px;
+    border: 2px solid var(--g1);
+    border-radius: 20px;
+    padding-left: 28px;
+    margin-left: 75%;
+}
+
+.val-max{
+    position: relative;
+}
+
+.val-max .unit{
+    position: absolute;
+    display:block;
+    top: 3px;
+    left: 85%;
+    font-weight: 500;
+    font-size: var(--medium);
+}
+
+.button-habilitar{
+    position: relative;
+    margin-left: 53%;
+}
+
+.habilitar{
+    height: 20px;
+    width: 35px;
+    background-color: var(--gr3);
+    border-style: hidden;
+    border-radius: 10px;
+}
+
+.circle{
+    position: absolute;
+    top: 1px;
+    height: 18px;
+    width: 18px;
+    border-radius: 18px;
+    background-color: white; 
+    border-style: hidden;
+}
+
+.circle.one{
+    left: 2px;
+}
+
+.circle.two{
+    left: 15px;
 }

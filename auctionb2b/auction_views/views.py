@@ -2,9 +2,13 @@ from wsgiref.util import request_uri
 from django.shortcuts import render, HttpResponse,redirect
 from django.forms.models import model_to_dict
 
+#librerias utiles 
+from math import floor
+
+#modelos
 from usuarios.models import Cuenta, Vehiculo_Subasta, Foto_Vehiculo, Info_Subasta
 
-import datetime
+from django.utils import timezone
 # Create your views here.
 
 def index(request):
@@ -42,4 +46,8 @@ def vehiculo(request, pk_vehiculo):
                    'modelo': modelo,
                    'precio': subasta['precio'],
                    'inicio': subasta['fecha_inicio'],
-                   'cierre': subasta['fecha_cierre']})
+                   'cierre': subasta['fecha_cierre'],
+                   'dias': (subasta['fecha_cierre']-timezone.localtime(timezone.now())).days,
+                   'horas': floor(((subasta['fecha_cierre']-timezone.localtime(timezone.now())).seconds)/3600),
+                   'minutos': str(subasta['fecha_cierre']-timezone.localtime(timezone.now()))[11:13]
+                   })
